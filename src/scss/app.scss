@@ -4,7 +4,7 @@
 @import 'base/globales';
 @import 'base/utilidades';
 @import 'base/botones';
-
+//UI
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/navegacion';
@@ -14,3 +14,6 @@
 @import 'layout/contactar';
 @import 'layout/inferior';
 @import 'layout/testimoniales';
+@import 'layout/formularios';
+//PAGINAS INTERNAS
+@import 'internas/nosotros';
