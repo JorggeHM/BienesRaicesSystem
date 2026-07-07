@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;    
-    padding-top: 3rem;
+    padding: 3rem;
     
     @include tablet {
         align-items: flex-end;
@@ -36,7 +36,8 @@
 .navegacion {
     visibility: hidden;
     opacity: 0;
-    transition: visibility .4s ease-in-out, opacity .2s ease-in-out;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .2s linear, height 0.5s;
 
     @include tablet {
         display: flex;
@@ -84,4 +85,5 @@
 .mostrar {
     visibility: visible;
     opacity: 1;
+    height: auto;
 }

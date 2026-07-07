@@ -7,7 +7,8 @@
         color: $gris;
     }
 
-    .anuncio{
+    .anuncio,
+    .resumen-nosotros{
         background-color: $grisOscuro;
         border: 1px solid $grisOscuro;
         
@@ -16,6 +17,25 @@
         }
         .icono{
              filter: invert(100%);
+        }
+    }
+    .texto-nosotros{
+        color: $blanco;
+    }
+
+    .formulario{
+        label,
+        legend,
+        p {
+            color: $gris;
+        }
+
+        input:not([type="submit"]),
+        textarea,
+        select{
+            background-color: $grisOscuro;
+            color: $blanco;
+            border: 1px solid $negro;
         }
     }
 
