@@ -1,5 +1,6 @@
 # Dependencias
 node_modules/
+db/
 
 # Archivos de producción / Compilación
 build/

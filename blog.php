@@ -1,40 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'includes/templates/header.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="build/img/logo.svg" alt="logoBR">
-                </a>
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="">
-                </div>
-
-
-                <div class="derecha">
-                    <img src="build/img/dark-mode.svg" alt="DarkMode" class="dark-mode-boton">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div>
-
-        </div>
-    </header>
 
     <main class="contenedor seccion contenido-centrado">
         <h1>Nuestro Blog</h1>
@@ -49,7 +14,7 @@
             </div>
 
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Terraza en el techo de tu casa</h4>
                     <p>
                         Escrito el: <span>20/10/2025</span> por: <span>Admin</span>
@@ -70,7 +35,7 @@
             </div>
 
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Seleccion de materiales</h4>
                     <p>
                         Escrito el: <span>12/05/2026</span> por: <span>Admin</span>
@@ -89,7 +54,7 @@
             </div>
 
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Consejos de iluminacion</h4>
                     <p>
                         Escrito el: <span>12/05/2026</span> por: <span>Admin</span>
@@ -109,7 +74,7 @@
             </div>
 
             <div class="texto-entrada">
-                <a href="entrada.html">
+                <a href="entrada.php">
                     <h4>Seleccion de materiales</h4>
                     <p>
                         Escrito el: <span>12/05/2026</span> por: <span>Admin</span>
@@ -125,10 +90,10 @@
     <footer class="footer seccion">
         <div class="contenedor-footer contenedor">
             <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
+                <a href="nosotros.php">Nosotros</a>
+                <a href="anuncios.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contacto.php">Contacto</a>
             </nav>
         </div>
 

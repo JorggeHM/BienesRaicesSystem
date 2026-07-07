@@ -1,41 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+    $inicio = true;
+    include 'includes/templates/header.php';
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Document</title>
-</head>
-
-<body>
-
-    <header class="header inicio">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-                <a href="/">
-                    <img src="build/img/logo.svg" alt="logoBR">
-                </a>
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="">
-                </div>
-
-
-                <div class="derecha">
-                    <img src="build/img/dark-mode.svg" alt="DarkMode" class="dark-mode-boton">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div>
-
-            <h1>Venta de Casas y Lotes al Mejor Precio</h1>
-        </div>
-    </header>
 
     <main class="contenedor seccion">
         <h1>Mas sobre nosotros</h1>
@@ -94,7 +61,7 @@
                             <p>3</p>
                         </li>
                     </ul>
-                    <a href="anuncios.html" class=" boton-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncios.php" class=" boton-amarillo-block">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de anuncio -->
@@ -124,7 +91,7 @@
                             <p>2</p>
                         </li>
                     </ul>
-                    <a href="anuncios.html" class=" boton-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncios.php" class=" boton-amarillo-block">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de anuncio -->
@@ -154,14 +121,14 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncios.html" class=" boton-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncios.php" class=" boton-amarillo-block">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de anuncio -->
 
         </div>
         <div class="alinear-derecha">
-            <a href="anuncios.html" class="boton-verde">Ver todas</a>
+            <a href="anuncios.php" class="boton-verde">Ver todas</a>
         </div>
 
         <!-- Fin de seccion de anuncios -->
@@ -170,7 +137,7 @@
     <section class="imagen-contacto ">
         <h2>Encuentra La casa de tus sueños</h2>
         <p>Llena el formulario de contacto para contactarte con uno de nuestros asesosres</p>
-        <a href="contacto.html" class="boton-amarillo">Contactanos</a>
+        <a href="contacto.php" class="boton-amarillo">Contactanos</a>
     </section>
     <!-- Fin de seccion de contacto -->
 
@@ -188,7 +155,7 @@
                 </div>
 
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
                         <p class="informacion-meta">
                             Escrito el: <span>20/10/2025</span> por: <span>Admin</span>
@@ -209,7 +176,7 @@
                 </div>
 
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Seleccion de materiales</h4>
                         <p class="informacion-meta">
                             Escrito el: <span>12/05/2026</span> por: <span>Admin</span>
@@ -241,10 +208,10 @@
     <footer class="footer seccion">
         <div class="contenedor-footer contenedor">
             <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
+                <a href="nosotros.php">Nosotros</a>
+                <a href="anuncios.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contacto.php">Contacto</a>
             </nav>
         </div>
 
@@ -253,4 +220,4 @@
     <script src="build/js/bundle.min.js"></script>
 </body>
 
-</html>
+</.php>
