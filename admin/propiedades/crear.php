@@ -20,18 +20,27 @@ $estacionamiento = '';
 $vendedores_id = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
 
-    $titulo = $_POST['titulo'];
-    $precio = $_POST['precio'];
-    $descripcion = $_POST['descripcion'];
-    $habitaciones = $_POST['habitaciones'];
-    $wc = $_POST['wc'];
-    $estacionamiento = $_POST['estacionamiento'];
-    $vendedores_id = $_POST['vendedor'];
+    //Ejemplo de sanitizacion
+    // $numero = 'HOLA1';
+    // $numero2 = 1;
+
+    // $resultado = filter_var($numero, FILTER_SANITIZE_STRING);
+
+
+    //variables sanitizadas
+    $titulo = mysqli_real_escape_string($db, $_POST['titulo']);
+    $precio = mysqli_real_escape_string($db, $_POST['precio']);
+    $descripcion = mysqli_real_escape_string($db, $_POST['descripcion']);
+    $habitaciones = mysqli_real_escape_string($db, $_POST['habitaciones']);
+    $wc = mysqli_real_escape_string($db, $_POST['wc']);
+    $estacionamiento = mysqli_real_escape_string($db, $_POST['estacionamiento']);
+    $vendedores_id = mysqli_real_escape_string($db, $_POST['vendedor']);
     $creado = date('Y/m/d');
+
+    //files  hacia una variable
+
+    $imagen = $_FILES['imagen'];
 
 
     //Validacion de errores para cada seccion vacia
@@ -57,6 +66,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$vendedores_id) {
         $errores[] = "Debes seleccionar un vendedor";
     }
+    if (!$imagen['name'] || $imagen['error']) {
+        $errores[] = "La imagen es obligatoria";
+    }
+
+    //Validar pot tamano
+
+    $media = 1000 * 1000;
+
+    if ($imagen['size'] == $media) {
+        $errores[] = "La imagen es muy grande";
+    }
+
 
     // echo "<pre>";
     // var_dump($errores);
@@ -64,14 +85,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Revisar que el array de errores este vacio
     if (empty($errores)) {
 
+        //subida de arvhibos
+
+        //creacion de carpeta   
+        $carpetaImagenes = '../../imagenes/';
+        if (!is_dir($carpetaImagenes)) {
+            mkdir($carpetaImagenes);
+        }
+
+        //Genera un nombre unico
+
+        $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+        move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
 
         //Insertar datos en la db
-        $query = "INSERT INTO propiedades ( titulo, precio, descripcion, habitaciones, wc, estacionamiento, creado, 
-    vendedores_id ) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' , '$vendedores_id' )";
+        $query = "INSERT INTO propiedades ( titulo, precio, imagen,  descripcion, habitaciones, wc, estacionamiento, creado, 
+        vendedores_id ) VALUES ('$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' , '$vendedores_id' )";
         //Se agrega la db y el comando a ejecutar
         $resultado = mysqli_query($db, $query);
 
-        if($resultado){
+        if ($resultado) {
             //Redireccionar usuario como confirmacion
 
             header('Location: /admin');
@@ -96,7 +130,7 @@ incluirTemplate('header');
 
     <a class="boton-verde boton" href="/admin/">Regresar</a>
 
-    <form class="formulario" method="POST" action="/admin/propiedades/crear.php">
+    <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
         <fieldset>
             <legend>Informacion general</legend>
 
