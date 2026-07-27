@@ -2,7 +2,7 @@
 
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
-if(!$id){
+if (!$id) {
     header('Location: /admin');
 }
 
@@ -10,9 +10,9 @@ if(!$id){
 require '../../includes/config/database.php';
 $db = conectarDB();
 //get datos de propiedad
-$consulta = "SELECT * FROM propiedades WHERE id = ${id}";
+$consulta = "SELECT * FROM propiedades WHERE id = {$id}";
 $resultado = mysqli_query($db, $consulta);
-$propiedades = mysqli_fetch_assoc($resultado); 
+$propiedades = mysqli_fetch_assoc($resultado);
 
 
 //Consultar vendedores
@@ -96,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Revisar que el array de errores este vacio
     if (empty($errores)) {
 
-        //subida de arvhibos
 
         //creacion de carpeta   
         $carpetaImagenes = '../../imagenes/';
@@ -104,15 +103,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mkdir($carpetaImagenes);
         }
 
+        $nombreImagen = '';
+
+        if ($imagen['name']) {
+            unlink($carpetaImagenes . $propiedades['imagen']);
+
+            $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
+        }
+
+
         //Genera un nombre unico
 
-        $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
-
-        move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
-
         //Insertar datos en la db
-        $query = " UPDATE propiedades SET titulo = '${titulo}', precio = '${precio}', descripcion = '${descripcion}',
-         habitaciones = ${habitaciones}, wc = ${wc}, estacionamiento = ${estacionamiento}, vendedores_id = ${vendedores_id} WHERE id = ${id}";
+        $query = " UPDATE propiedades SET titulo = '{$titulo}', precio = '{$precio}', imagen = '{$nombreImagen}', descripcion = '{$descripcion}',
+         habitaciones = {$habitaciones}, wc = {$wc}, estacionamiento = {$estacionamiento}, vendedores_id = {$vendedores_id} WHERE id = {$id}";
         //Se agrega la db y el comando a ejecutar
 
         $resultado = mysqli_query($db, $query);
@@ -154,7 +160,7 @@ incluirTemplate('header');
 
             <label for="imagen">Imagen</label>
             <input type="file" id="imagen" name="imagen" accept="image/jpeg, image/png">
-           
+
             <img class="imagen-small" src="/imagenes/<?php echo $imagenPropiedad; ?>" alt="">
 
             <label for="descripcion">Descripcion</label>
