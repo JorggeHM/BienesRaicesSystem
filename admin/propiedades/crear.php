@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultado) {
             //Redireccionar usuario como confirmacion
 
-            header('Location: /admin');
+            header('Location: /admin?resultado=1');
         }
     }
 }
