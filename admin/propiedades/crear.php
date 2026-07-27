@@ -128,7 +128,7 @@ incluirTemplate('header');
         </div>
     <?php endforeach;  ?>
 
-    <a class="boton-verde boton" href="/admin/">Regresar</a>
+    <a class="boton-verde boton" href="/admin">Regresar</a>
 
     <form class="formulario" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
         <fieldset>
