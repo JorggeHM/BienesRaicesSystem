@@ -1,4 +1,6 @@
 <?php 
+var_dump($_SESSION);
+
     require 'includes/funciones.php';
     $inicio = true;
     incluirTemplate('header', $inicio = true)
