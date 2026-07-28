@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         //Insertar datos en la db
         $query = "INSERT INTO propiedades ( titulo, precio, imagen,  descripcion, habitaciones, wc, estacionamiento, creado, 
-        vendedores_id ) VALUES ('$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado' , '$vendedores_id' )";
+        vendedores_id ) VALUES ('{$titulo}', '{$precio}', '{$nombreImagen}', '{$descripcion}', '{$habitaciones}', '{$wc}', '{$estacionamiento}', '{$creado}' , '{$vendedores_id}' )";
         //Se agrega la db y el comando a ejecutar
         $resultado = mysqli_query($db, $query);
 

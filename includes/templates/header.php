@@ -31,5 +31,11 @@
                 
             </div> <!--.barra-->
 
+            <?php 
+            if($inicio){
+                echo "<h1>Venta de Departamentos y Casas al mejor precio</h1>";
+            }
+            ?>
+
         </div>
     </header>
