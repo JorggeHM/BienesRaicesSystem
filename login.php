@@ -1,6 +1,8 @@
 <?php
 //auuth
 include 'includes/config/database.php';
+require 'includes/funciones.php';
+
 $db = conectarDB();
 
 $errores = [];
@@ -35,6 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario'] = $usuario['email'];
                 $_SESSION['login'] = true;
 
+                header( 'Location: /admin');
+
+
             }else{
                 $errores[] = "El password es incorrecto";
             }
@@ -45,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 //header
-require 'includes/funciones.php';
 incluirTemplate('header');
 ?>
 
@@ -57,6 +61,7 @@ incluirTemplate('header');
             <?php echo $error;?>
         </div>
     <?php endforeach; ?>
+
     <form method="POST" class="formulario">
 
         <fieldset>

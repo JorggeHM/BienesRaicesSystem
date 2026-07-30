@@ -1,9 +1,8 @@
 <?php
-var_dump($_SESSION);
 require '../includes/funciones.php';
 
 $auth = estaAutenticado();
-if(!$auth){
+if (!$auth) {
     header('Location: /');
 }
 
@@ -45,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 // Incluye un template
-require '../includes/funciones.php';
 incluirTemplate('header');
 
 //

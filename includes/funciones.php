@@ -14,6 +14,8 @@ function estaAutenticado(): bool
 
     if ($auth) {
         return true;
+    } else {
+
+        return false;
     }
-    return false;
 }
