@@ -6,7 +6,7 @@ if (!$id) {
     header('Location: /');
 }
 //Importar fb
-require 'includes/config/database.php';
+require 'includes/app.php';
 
 $db = conectarDB();
 //Consultar

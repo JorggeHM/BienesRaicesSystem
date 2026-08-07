@@ -12,3 +12,4 @@ Thumbs.db
 # Configuración local de editores (opcional pero recomendado)
 .vscode/
 .idea/
+/vendor/

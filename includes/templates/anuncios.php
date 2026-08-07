@@ -1,6 +1,5 @@
 <?php
 //Importar fb
-require __DIR__ . '/../config/database.php';
 
 $db = conectarDB();
 //Consultar

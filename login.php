@@ -1,7 +1,6 @@
 <?php
 //auuth
-include 'includes/config/database.php';
-require 'includes/funciones.php';
+require 'includes/app.php';
 
 $db = conectarDB();
 
