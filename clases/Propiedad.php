@@ -32,9 +32,16 @@ class Propiedad
       $this->creado = date('Y/m/d');
       $this->vendedores_id = $args['vendedores_id'] ?? '';
    }
-
+   //setear db
+   public static function setDB($database)
+   {
+      self::$db = $database;
+   }
+   //guardar datos en db
    public function guardar()
    {
+
+   
 
       $query = "INSERT INTO propiedades ( titulo, precio, imagen,  descripcion, habitaciones, wc, estacionamiento, creado, 
         vendedores_id ) VALUES ('{$this->titulo}', '{$this->precio}', '{$this->imagen}', '{$this->descripcion}',
@@ -42,11 +49,6 @@ class Propiedad
 
       // debugerar($query);
       $resutado = self::$db->query($query);
-
    }
 
-   public static function setDB($database)
-   {
-      self::$db = $database;
-   }
 }

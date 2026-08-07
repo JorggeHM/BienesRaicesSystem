@@ -1,10 +1,10 @@
 <?php
 require '../includes/funciones.php';
 
-$auth = estaAutenticado();
-if (!$auth) {
-    header('Location: /');
-}
+estaAutenticado();
+// if (!$auth) {
+//     //  header('Location: /');
+// }
 
 
 //importar conexion
